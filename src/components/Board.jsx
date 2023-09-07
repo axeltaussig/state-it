@@ -1,7 +1,7 @@
 import ReadingIcons from "./ReadingIcons";
 import SendReceiveButton from "./SendReceiveButton";
 
-function BoardReading() {
+function Board() {
   return (
     <div className="h-full w-full ring-1 ring-gray-900/5 sm:rounded-lg">
       <textarea
@@ -12,4 +12,4 @@ function BoardReading() {
   );
 }
 
-export default BoardReading;
+export default Board;
