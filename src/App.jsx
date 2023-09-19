@@ -3,6 +3,7 @@ import "./App.css";
 import Board from "./components/Board";
 import SendReceiveButton from "./components/SendReceiveButton";
 import ReadingIcons from "./components/ReadingIcons";
+import axios from "axios";
 
 function App() {
   //set value last statement requested
@@ -10,15 +11,14 @@ function App() {
   const [updateStatement, setUpdateStatement] = useState(false);
 
   //ifText setText to true => arrow & send
-
   const [userStatement, setUserStatement] = useState("");
-
   useEffect(() => {
     // pull the message from the server first of the list
-
-    let randomStatement = "API";
-
-    setlastStatementRequested(randomStatement);
+    //let randomStatement = "API";
+    axios.get(`http://localhost:5000/getStatement?id=1`).then((result) => {
+      console.log(result);
+      setlastStatementRequested(result.data.statement[0].statement);
+    });
   }, [updateStatement]);
 
   // let statement;
